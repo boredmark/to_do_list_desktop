@@ -14,13 +14,13 @@ class App:
 		self.buttomFrame.pack()
 		self.l = database.get_all_values()
 		for i, j  in zip(self.l, range(len(self.l))):
-			self.to_do = Checkbutton(self.topFrame, text = f"{i[0]}", command=lambda s=i[0]:switch_checkbox(s))
+			self.to_do = Checkbutton(self.topFrame, text = f"{i[0]}", command=lambda s=i[0]:self.switch_checkbox(s))
 			if i[1] == 0:
 				self.to_do.deselect()
 			if i[1] == 1:
 				self.to_do.select()
 			self.to_do.grid(row = 1 + j, column = 1)
-			self.b = Button(self.topFrame, text = 'delete',height=1, width=2, command=lambda x=i[0]:delete_item(x))
+			self.b = Button(self.topFrame, text = 'delete',height=1, width=2, command=lambda x=i[0]:self.delete_item(x))
 			self.b.grid(row = 1 + j, column = 3)
 
 		self.entry = Entry(self.buttomFrame)
