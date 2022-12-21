@@ -1,4 +1,4 @@
 /env/
 /__pycache__/
 *.sublime-workspace
-draft.py
+*.db
