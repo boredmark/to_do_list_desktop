@@ -67,9 +67,3 @@ def delete_value(l):
 
 
 
-
-a = get_all_values()
-print(a)
-
-
-
