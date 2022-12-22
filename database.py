@@ -5,7 +5,7 @@ def create_db():
 	try:
 		conn = sqlite3.connect('main.db')
 	except Exception as e:
-		raise 'Failed connection'
+		raise 'Failed db connection'
 	finally:
 		cur = conn.cursor()
 		cur.execute("CREATE TABLE IF NOT EXISTS to_do(value VARCHAR(20), state INT);")
@@ -18,7 +18,7 @@ def add_value(l):
 	try:
 		conn = sqlite3.connect('main.db')
 	except Exception as e:
-		raise 'Failed connection'
+		raise 'Failed db connection'
 	finally:
 		cur = conn.cursor()
 		cur.execute("INSERT INTO to_do VALUES(?, ?);",data)
@@ -30,7 +30,7 @@ def get_all_values():
 	try:
 		conn = sqlite3.connect('main.db')
 	except Exception as e:
-		raise 'Failed connection'
+		raise 'Failed db connection'
 	finally:
 		cur = conn.cursor()
 		cur.execute(f"SELECT * FROM to_do;")
@@ -57,7 +57,7 @@ def delete_value(l):
 	try:
 		conn = sqlite3.connect('main.db')
 	except Exception as e:
-		raise 'Failed connection'
+		raise 'Failed db connection'
 	finally:
 		cur = conn.cursor()
 		cur.execute("DELETE FROM to_do WHERE value=?", (data,))
